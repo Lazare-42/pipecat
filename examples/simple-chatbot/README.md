@@ -10,28 +10,33 @@ And a quick video walkthrough of the code: https://www.loom.com/share/13df196716
 
 ℹ️ The first time, things might take extra time to get started since VAD (Voice Activity Detection) model needs to be downloaded.
 
+## Requirements
+
+- Python 3.10 or higher
+
 ## Get started
 
-```python
-python3 -m venv venv
-source venv/bin/activate
-pip install -r requirements.txt
+```bash
+# Install Poetry if you haven't already
+curl -sSL https://install.python-poetry.org | python3 -
 
-cp env.example .env # and add your credentials
+# Install dependencies
+poetry install
 
+# Copy the example environment file and add your credentials
+cp env.example .env
 ```
 
 ## Run the server
 
 ```bash
-python server.py
+poetry run python server.py
 ```
 
 Then, visit `http://localhost:7860/start` in your browser to start a chatbot session.
 
 ## Build and test the Docker image
 
-```
+```bash
 docker build -t chatbot .
 docker run --env-file .env -p 7860:7860 chatbot
-```

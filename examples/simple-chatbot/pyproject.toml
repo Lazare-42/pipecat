@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "simple-chatbot"
+version = "0.1.0"
+description = ""
+authors = ["pradel <praddid63@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+python-dotenv = "^1.0.1"
+fastapi = "^0.112.2"
+uvicorn = {extras = ["standard"], version = "^0.30.6"}
+pipecat-ai = {extras = ["daily", "openai", "silero"], version = "^0.0.41"}
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

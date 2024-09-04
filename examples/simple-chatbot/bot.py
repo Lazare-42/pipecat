@@ -26,7 +26,7 @@ from pipecat.frames.frames import (
 from pipecat.processors.frame_processor import FrameDirection, FrameProcessor
 from pipecat.services.elevenlabs import ElevenLabsTTSService
 from pipecat.services.openai import OpenAILLMService
-from pipecat.transports.services.daily import DailyParams, DailyTransport
+from pipecat.transports.services.daily import DailyParams, DailyTransport, DailyTranscriptionSettings
 from pipecat.vad.silero import SileroVADAnalyzer
 
 from runner import configure
@@ -102,11 +102,11 @@ async def main():
                 #
                 # Spanish
                 #
-                # transcription_settings=DailyTranscriptionSettings(
-                #     language="es",
-                #     tier="nova",
-                #     model="2-general"
-                # )
+                transcription_settings=DailyTranscriptionSettings(
+                    language="fr",
+                    tier="nova",
+                    model="2-general"
+                )
             )
         )
 
@@ -116,6 +116,7 @@ async def main():
             #
             # English
             #
+            model="eleven_multilingual_v2",
             voice_id="pNInz6obpgDQGcFmaJgB",
 
             #
@@ -135,8 +136,8 @@ async def main():
                 #
                 # English
                 #
-                "content": "You are Chatbot, a friendly, helpful robot. Your goal is to demonstrate your capabilities in a succinct way. Your output will be converted to audio so don't include special characters in your answers. Respond to what the user said in a creative and helpful way, but keep your responses brief. Start by introducing yourself.",
-
+                # "content": "You are Chatbot, a friendly, helpful robot. Your goal is to demonstrate your capabilities in a succinct way. Your output will be converted to audio so don't include special characters in your answers. Respond to what the user said in a creative and helpful way, but keep your responses brief. Start by introducing yourself.",
+                "content": "Tu es Chatbot, un robot amical et serviable. Ton objectif est de démontrer tes capacités de manière concise. Tes réponses seront converties en audio, donc n'inclus pas de caractères spéciaux dans tes réponses. Réponds à ce que l'utilisateur dit de manière créative et utile, mais garde tes réponses brèves. Commence par te présenter.  tu as un objectif: etre le moderateur d'un daily meeting. Pour tous les participants aux meetings, tu dois demander le nom, demander ce qu'ils ont fait hier, et les aider a progresser.  Tu dois leur dire d'etre focus !  ",
                 #
                 # Spanish
                 #
